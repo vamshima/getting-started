@@ -1,5 +1,6 @@
 pipeline {
   agent any
+  stages{
     stage('git checkout'){
     git credentialsId: 'gitcheckout2', url: 'https://github.com/vamshima/getting-started.git'
                } 
@@ -7,6 +8,7 @@ pipeline {
     stage('Docker Build') {
       steps {
         sh 'docker build -t shanem/spring-petclinic:latest .'
+      }
       }
     }
 }
